@@ -16,7 +16,8 @@ library(MicroStrategyR)
 
 
 # set working directory
-setwd("J:/Ashley/ICU Prediction")
+setwd("J:/individual work areas/Akshith/ICU Predictions/ICU Predictions")
+# setwd("J:/Ashley/ICU Prediction")
 
 # 2016 NICU 21 Days
 # NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 21 Days Full 2014-2016.xlsx") #, detectDates=TRUE)
