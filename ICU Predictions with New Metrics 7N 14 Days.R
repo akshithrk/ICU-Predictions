@@ -22,7 +22,7 @@ setwd("J:/Ashley/ICU Prediction")
 # 2016 NICU 21 Days
 # NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 21 Days Full 2014-2016.xlsx") #, detectDates=TRUE)
 # New service variable 
-NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Discharge Full 2014-2016.xlsx", detectDates=TRUE)
+NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 14 Days Full 2016.xlsx", detectDates=TRUE)
 
 # Validation data set
 # NICU_JanOct2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 21 Days Full 2017.xlsx", detectDates=TRUE)
