@@ -32,8 +32,8 @@ NICU_JanOct2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Disc
 # Fit model
 
 ## Select from the full dataset  just just the variables to try fitting.
-head(NICU_cy2016.df, n=5)
-ICUPredictors.7N.2016.df <- select(NICU_cy2016.df, Checkout.within.14.Days, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
+# head(NICU_cy2016.df, n=5)
+ICUPredictors.7N.2016.df <- select(NICU_cy2016.df, At.Least.21.Days.Till.Checkout, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
 
 ## Fit a logistic regression model with all of the initial set of selected variables
 
