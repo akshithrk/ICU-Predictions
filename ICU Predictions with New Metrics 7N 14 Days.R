@@ -59,15 +59,19 @@ save(ICUPredictors.7N.2016.steplogis, file="ICUPredictors.7N.2016.steplogis.Rda"
 ## First select from validation dataset just the variables we used in the training dataset
 
 ICUPredictors.7N.14.2017.df <- select(NICU.14_cy2017.df, Checkout.within.14.Days, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
+# summary(ICUPredictors.7N.14.2017.df)
+# is.na(ICUPredictors.7N.14.2017.df)
+
 # save the 2017 validation data set
 save(ICUPredictors.7N.14.2017.df, file="ICUPredictors.7N.14.2017.df.Rda")
 
 ## Predict outcomes by feeding the validation predictor variables into the model
-ICUPredictors.7N.t14.16.v2017.steplogis.predict <- predict(ICUPredictors.7N.2016.steplogis, newdata=ICUPredictors.7N.14.2017.df, type="response", se.fit=TRUE)
+ICUPredictors.7N.t1416.v2017.steplogis.predict <- predict(ICUPredictors.7N.2016.steplogis, newdata=ICUPredictors.7N.14.2017.df, type="response", se.fit=TRUE)
+
 
 ## Tally up the predicted outcomes vs. the actual outcomes included in the validation dataset (This is called scoring.)
 
-evaluation.scores <- prediction(ICUPredictors.7N.t14.16.v2017.steplogis.predict$fit, ICUPredictors.7N.14.2017.df$Checkout.within.14.Days)
+evaluation.scores <- prediction(ICUPredictors.7N.t1416.v2017.steplogis.predict$fit, ICUPredictors.7N.14.2017.df$Checkout.within.14.Days)
 
 
 ## Calculate statistical measures of the quality of the model from the evaluation scores
