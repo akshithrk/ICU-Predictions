@@ -42,7 +42,8 @@ ICUPredictors.7N.14.2016.df <- select(NICU.14_cy2016.df, Checkout.within.14.Days
 ## Fit a logistic regression model with all of the initial set of selected variables
 
 ICUPredictors.7N.2016.logis <- glm(Checkout.within.14.Days ~ ., family=binomial(logit), data=ICUPredictors.7N.14.2016.df)
-summary(ICUPredictors.7N.2016.logis)
+summary <- summary(ICUPredictors.7N.2016.logis)
+summary
 
 ## Use step-wise elimination to automatically remove those predictor variables that do not signficantly contribute to the model
 
