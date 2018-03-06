@@ -22,26 +22,26 @@ setwd("J:/Ashley/ICU Prediction")
 # 2016 NICU 21 Days
 # NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 21 Days Full 2014-2016.xlsx") #, detectDates=TRUE)
 # New service variable 
-NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Discharge Full 2014-2016.xlsx", detectDates=TRUE)
+# NICU_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Discharge Full 2014-2016.xlsx", detectDates=TRUE)
 NICU.14_cy2016.df <- read.xlsx("Create 7N NICU Training Dataset WIP 14 Days 2014 to 2016.xlsx", detectDates=TRUE)
 
 # Validation data set
 # NICU_JanOct2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 21 Days Full 2017.xlsx", detectDates=TRUE)
 # New service variable
-NICU_JanOct2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Discharge Full 2017.xlsx", detectDates=TRUE)
+# NICU_JanOct2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 5 Days Discharge Full 2017.xlsx", detectDates=TRUE)
 NICU.14_cy2017.df <- read.xlsx("Create 7N NICU Training Dataset WIP 14 Days 2017.xlsx", detectDates=TRUE)
 
 # Fit model
 
 ## Select from the full dataset  just just the variables to try fitting.
 # head(NICU_cy2016.df, n=5)
-ICUPredictors.7N.2016.df <- select(NICU_cy2016.df, At.Least.21.Days.Till.Checkout, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
+# ICUPredictors.7N.2016.df <- select(NICU_cy2016.df, At.Least.21.Days.Till.Checkout, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
 ICUPredictors.7N.14.2016.df <- select(NICU.14_cy2016.df, Checkout.within.14.Days, Days.Since.Checkin, Last.Bedded.Service.Grouped:Total.Cont.Sedative.Medications, Gender, Major.Region)
 # colnames(NICU.14_cy2016.df)
 
 ## Fit a logistic regression model with all of the initial set of selected variables
 
-ICUPredictors.7N.2016.logis <- glm(At.Least.21.Days.Till.Checkout ~ ., family=binomial(logit), data=ICUPredictors.7N.2016.df)
+ICUPredictors.7N.2016.logis <- glm(Checkout.within.14.Days ~ ., family=binomial(logit), data=ICUPredictors.7N.14.2016.df)
 summary(ICUPredictors.7N.2016.logis)
 
 ## Use step-wise elimination to automatically remove those predictor variables that do not signficantly contribute to the model
