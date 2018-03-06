@@ -104,7 +104,7 @@ legend("bottom",legend=paste("ROC Area:",format(evaluation.rocarea, digits=3)))
 
 plot(evaluation.tnr, ylim=c(0,1), col="black", lwd=2, ylab="Rates")
 lines(evaluation.cutoffs, evaluation.tpr, ylim=c(0,1),col="red", lwd=2, lty=1)
-legend("bottom",c("TPR   14+ days", "TNR   14+ days"), col=c("red","black"), lty=c(1,1), lwd=c(2,2))
+legend("bottom",c("TPR   14 days", "TNR   14 days"), col=c("red","black"), lty=c(1,1), lwd=c(2,2))
 title(main="True Positive and True Negative Rate Plots by Cutoff\nFor Daily Predictions of discharge within 14 Days in 7N NICU",
       sub="Logistic model trained with CY2014-2016 and validated with 2017 data")
 
