@@ -95,7 +95,7 @@ evaluation.err <- performance(evaluation.scores, "err")                 # Error 
 
 plot(evaluation.roc, col = "red", lwd=2, ylim=c(0,1),xlim=c(0,1))
 abline(0,1, lty = 8, col = "grey")
-title( main="ROC Curve for Daily Predictions of 14 Days in 7N NICU",
+title( main="ROC Curve for Daily Predictions of discharge within 14 Days in 7N NICU",
        sub="Logistic model trained with CY2014-2016 and validated with 2017 data")
 legend("bottom",legend=paste("ROC Area:",format(evaluation.rocarea, digits=3)))
 
@@ -104,8 +104,8 @@ legend("bottom",legend=paste("ROC Area:",format(evaluation.rocarea, digits=3)))
 
 plot(evaluation.tnr, ylim=c(0,1), col="black", lwd=2, ylab="Rates")
 lines(evaluation.cutoffs, evaluation.tpr, ylim=c(0,1),col="red", lwd=2, lty=1)
-legend("bottom",c("TPR   21+ days", "TNR   21+ days"), col=c("red","black"), lty=c(1,1), lwd=c(2,2))
-title(main="True Positive and True Negative Rate Plots by Cutoff\nFor Daily Predictions of 14 Days in 7N NICU",
+legend("bottom",c("TPR   14+ days", "TNR   14+ days"), col=c("red","black"), lty=c(1,1), lwd=c(2,2))
+title(main="True Positive and True Negative Rate Plots by Cutoff\nFor Daily Predictions of discharge within 14 Days in 7N NICU",
       sub="Logistic model trained with CY2014-2016 and validated with 2017 data")
 
 
@@ -114,9 +114,9 @@ title(main="True Positive and True Negative Rate Plots by Cutoff\nFor Daily Pred
 plot(evaluation.ppv, ylim=c(0,1), col="red", lwd=2, ylab="Rates")
 lines(evaluation.npv@x.values[[1]], evaluation.npv@y.values[[1]],
       ylim=c(0,1),col="black", lwd=2, lty=1)
-legend("bottom",c("PPV   21+ days", "NPV   21+ days"),
+legend("bottom",c("PPV   14 days", "NPV   14 days"),
        col=c("red","black"), lty=c(1,1), lwd=c(2,2))
-title(main="Positive Predictive Value and Negative Predictive Value Plots by Cutoff\nFor Daily Predictions of 14 Days Days in 7N NICU",
+title(main="Positive Predictive Value and Negative Predictive Value Plots by Cutoff\nFor Daily Predictions of discharge within 14 Days Days in 7N NICU",
       sub="Logistic model trained with CY2014-2016 and validated with 2017 data")
 
 
@@ -125,7 +125,7 @@ title(main="Positive Predictive Value and Negative Predictive Value Plots by Cut
 plot(evaluation.acc@x.values[[1]], evaluation.acc@y.values[[1]], col="red",
      xlab=evaluation.acc@x.name, ylab="Accuracy", type="l",lwd=2,xlim=c(0,1),ylim=c(0,1))
 lines(evaluation.err@x.values[[1]], evaluation.err@y.values[[1]],col="black", lwd=1, lty=2)
-legend("bottomright",c("ACC   21+ days", "ERR   21+ days"),
+legend("bottomright",c("ACC   14 days", "ERR   14 days"),
        col=c("red","black"),lty=c(1,2), lwd=c(2,1))
-title(main="Accuracy and Error Rates by Cutoff\nFor Daily Predictions of 14 Days in 7N NICU",
+title(main="Accuracy and Error Rates by Cutoff\nFor Daily Predictions of discharge within 14 Days in 7N NICU",
       sub="Logistic model trained with CY2014-2016 and validated with 2017 data")
