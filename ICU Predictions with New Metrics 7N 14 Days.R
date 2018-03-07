@@ -41,16 +41,16 @@ ICUPredictors.7N.14.2016.df <- select(NICU.14_cy2016.df, Checkout.within.14.Days
 
 ## Fit a logistic regression model with all of the initial set of selected variables
 
-ICUPredictors.7N.2016.logis <- glm(Checkout.within.14.Days ~ ., family=binomial(logit), data=ICUPredictors.7N.14.2016.df)
+ICUPredictors.7N.14.2016.logis <- glm(Checkout.within.14.Days ~ ., family=binomial(logit), data=ICUPredictors.7N.14.2016.df)
 summary <- summary(ICUPredictors.7N.2016.logis)
 summary
 
 ## Use step-wise elimination to automatically remove those predictor variables that do not signficantly contribute to the model
 
-ICUPredictors.7N.2016.steplogis <- stepAIC(ICUPredictors.7N.2016.logis, trace=0)
+ICUPredictors.7N.14.2016.steplogis <- stepAIC(ICUPredictors.7N.14.2016.logis, trace=0)
 summary(ICUPredictors.7N.2016.steplogis)
 # save the new model
-save(ICUPredictors.7N.2016.steplogis, file="ICUPredictors.7N.2016.steplogis.Rda")
+save(ICUPredictors.7N.14.2016.steplogis, file="ICUPredictors.7N.14.2016.steplogis.Rda")
 
 
 # Test model predictions on validation data
@@ -66,12 +66,12 @@ ICUPredictors.7N.14.2017.df <- select(NICU.14_cy2017.df, Checkout.within.14.Days
 save(ICUPredictors.7N.14.2017.df, file="ICUPredictors.7N.14.2017.df.Rda")
 
 ## Predict outcomes by feeding the validation predictor variables into the model
-ICUPredictors.7N.t1416.v2017.steplogis.predict <- predict(ICUPredictors.7N.2016.steplogis, newdata=ICUPredictors.7N.14.2017.df, type="response", se.fit=TRUE)
+ICUPredictors.7N.14.t1416.v2017.steplogis.predict <- predict(ICUPredictors.7N.14.2016.steplogis, newdata=ICUPredictors.7N.14.2017.df, type="response", se.fit=TRUE)
 
 
 ## Tally up the predicted outcomes vs. the actual outcomes included in the validation dataset (This is called scoring.)
 
-evaluation.scores <- prediction(ICUPredictors.7N.t1416.v2017.steplogis.predict$fit, ICUPredictors.7N.14.2017.df$Checkout.within.14.Days)
+evaluation.scores <- prediction(ICUPredictors.7N.14.t1416.v2017.steplogis.predict$fit, ICUPredictors.7N.14.2017.df$Checkout.within.14.Days)
 
 
 ## Calculate statistical measures of the quality of the model from the evaluation scores
