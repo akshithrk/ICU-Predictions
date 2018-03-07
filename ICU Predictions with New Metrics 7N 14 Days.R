@@ -48,7 +48,7 @@ summary
 ## Use step-wise elimination to automatically remove those predictor variables that do not signficantly contribute to the model
 
 ICUPredictors.7N.14.2016.steplogis <- stepAIC(ICUPredictors.7N.14.2016.logis, trace=0)
-summary(ICUPredictors.7N.2016.steplogis)
+summary(ICUPredictors.7N.14.2016.steplogis)
 # save the new model
 save(ICUPredictors.7N.14.2016.steplogis, file="ICUPredictors.7N.14.2016.steplogis.Rda")
 
