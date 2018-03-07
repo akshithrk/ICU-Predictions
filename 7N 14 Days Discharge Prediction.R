@@ -9,14 +9,18 @@
 #RVAR Genetic.dx.category -input -numeric -vector
 #RVAR GI.dx.category -input -numeric -vector
 #RVAR Hem.imm.dx.category -input -numeric -vector
+
 #RVAR Metabolism.dx.categoy -input -numeric -vector
+
 #RVAR Neonatal.dx.category -input -numeric -vector
 #RVAR Neuro.dx.category -input -numeric -vector
 #RVAR Renal.dx.category -input -numeric -vector
 #RVAR Respiratory.dx.category -input -numeric -vector
 #RVAR Technology.dependent.dx.category -input -numeric -vector
 #RVAR Weeks.gestatation.category -input -string -vector
+
 #RVAR ArtLine.Indicator -input -numeric -vector
+
 #RVAR CVL1.Indicator -input -numeric -vector
 #RVAR ECMO.Indicator -input -numeric -vector
 #RVAR Oxygen.Indicator -input -numeric -vector
@@ -32,10 +36,15 @@
 #RVAR Weaning.Phase -input -string -vector
 #RVAR Pressor.Med.Indicator -input -numeric -vector
 #RVAR Clonidine.Inter.Indicator -input -numeric -vector
+#RVAR Diazepam.Inter.Indicator -input -numeric -vector
 #RVAR Fentanyl.Inter.Indicator -input -numeric -vector
+#RVAR Methadone.Inter.Indicator -input -numeric -vector
+#RVAR Morphine.Inter.Indicator -input -numeric -vector
+#RVAR Intermittent.Sedative.Medication.Admin.Count -input -numeric -vector
+
 #RVAR Lorazepam.Inter.Indicator -input -numeric -vector
+
 #RVAR Midazolam.Cont.Indicator -input -numeric -vector
-#RVAR Morphine.Cont.Indicator -input -numeric -vector
 #RVAR Major.Region -input -string -vector
 
 #
