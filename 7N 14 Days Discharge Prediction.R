@@ -3,7 +3,6 @@
 #RVAR Days.Since.Checkin -input -numeric -vector
 #RVAR Last.Bedded.Service.Grouped -input -string -vector
 #RVAR Critical.Care.Indicator -input -numeric -vector
-#RVAR Initial.Indicator -input -numeric -vector
 #RVAR Subsequent.Indicator -input -numeric -vector
 #RVAR Cardiovascular.dx.category -input -numeric -vector
 #RVAR CCC.drugs.dx.category -input -numeric -vector
@@ -63,15 +62,15 @@ mstr.ErrMsg <- tryCatch({                                      #tryCatch for Exc
     }
     #If this is NOT via a MicroStrategy Report Execution
   } else {
-    load("ICUPredictors.7N.7d.2014.2016.steplogis.Rda")
-    predictors.df <- ICUPredictors.7N.7d.JanNov2017.df
+    load("ICUPredictors.7N.14.2016.steplogis.Rda")
+    predictors.df <- ICUPredictors.7N.14.2017.df
   }
   #Make Predictions
   ## Debug Printing Input
   # library(openxlsx)
   # write.xlsx(predictors.df,"debug_predictors.xlsx")
   ## End Debug Printing Input
-  predicted.values <- predict(ICUPredictors.7N.7d.2014.2016.steplogis, newdata=predictors.df, type="response", se.fit=TRUE)
+  predicted.values <- predict(ICUPredictors.7N.14.2016.steplogis, newdata=predictors.df, type="response", se.fit=TRUE)
   predicted.fit <- predicted.values$fit
   predicted.se.fit <- predicted.values$se.fit
   ## Deug Printing Output
