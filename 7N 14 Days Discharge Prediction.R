@@ -50,7 +50,7 @@ if(exists("mstr.WorkingDir")) setwd(mstr.WorkingDir)  #Working Directory if exec
 mstr.ErrMsg <- tryCatch({                                      #tryCatch for Exception Handling
   if(exists("mstr.WorkingDir")) setwd(mstr.WorkingDir)         #Working Directory if executed by MicroStrategy
   #Get the prediction model
-  load("ICUPredictors.7N.7d.2014.2016.steplogis.Rda")
+  load("ICUPredictors.7N.14.2016.steplogis.Rda")
   #Get the data
   if(exists("mstr.ExFlag")) {
     #Create a data frame from the input variables
